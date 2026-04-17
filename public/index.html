@@ -7,226 +7,243 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Geologica:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* ═══ MISTY LILAC MORNING PALETTE ═══ */
         :root {
-            --blue:        #2B4A8F;
-            --blue-mid:    #3D6AC5;
-            --blue-light:  #7096D8;
-            --blue-pale:   #EBF0FA;
-            --blue-soft:   #D0DCF5;
-            --accent:      #E8956A;
-            --accent-light:#F5C9B0;
-            --accent-pale: #FDF1EB;
-            --white:       #FFFFFF;
-            --off-white:   #F7F8FC;
-            --text-dark:   #1A2240;
-            --text-mid:    #3A4A70;
-            --text-soft:   #7A8AB0;
-            --border:      #D8E0F0;
-            --nav-h:       70px;
+            --lilac-light:  #E9D9FF;  /* найсвітліший */
+            --lilac-mid:    #CDB7F6;  /* середній */
+            --lilac-main:   #A98BE3;  /* основний акцент */
+            --lilac-pale:   #F6F2FF;  /* майже білий фон */
+            --lilac-dark:   #4B3B61;  /* темний — для тексту/nav */
+
+            --white:        #FFFFFF;
+            --off-white:    #FAF8FF;
+            --text-dark:    #2A1D3E;
+            --text-mid:     #4B3B61;
+            --text-soft:    #8B7BAA;
+            --border:       #DDD0F5;
+            --nav-h:        70px;
         }
+
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         body { font-family:'Geologica',sans-serif; color:var(--text-dark); background:var(--white); overflow-x:hidden; }
 
-        /* NAV */
+        /* ═══ NAV ═══ */
         nav {
             position:fixed; top:0; left:0; right:0; height:var(--nav-h);
-            background:rgba(43,74,143,0.96); backdrop-filter:blur(14px);
+            background:rgba(75,59,97,0.96); backdrop-filter:blur(14px);
             z-index:1000; display:flex; align-items:center;
             justify-content:space-between; padding:0 48px;
-            border-bottom:1.5px solid rgba(232,149,106,0.25);
+            border-bottom:1.5px solid rgba(169,139,227,0.3);
         }
         .nav-logo { font-family:'Unbounded',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
-        .nav-logo span { color:var(--accent); }
+        .nav-logo span { color:var(--lilac-mid); }
         .nav-links { display:flex; gap:28px; list-style:none; }
-        .nav-links a { font-size:12px; color:rgba(255,255,255,0.75); text-decoration:none; letter-spacing:.4px; text-transform:uppercase; transition:color .2s; }
-        .nav-links a:hover { color:var(--accent); }
-        .nav-cta { background:var(--accent)!important; color:var(--white)!important; padding:7px 16px; border-radius:6px; font-weight:500!important; }
+        .nav-links a { font-size:12px; color:rgba(255,255,255,0.7); text-decoration:none; letter-spacing:.4px; text-transform:uppercase; transition:color .2s; }
+        .nav-links a:hover { color:var(--lilac-light); }
+        .nav-cta { background:var(--lilac-main)!important; color:var(--white)!important; padding:7px 16px; border-radius:6px; font-weight:500!important; }
 
-        /* HERO */
+        /* ═══ HERO ═══ */
         #hero {
             min-height:100vh;
-            background:linear-gradient(135deg,#1A2D6B 0%,#2B4A8F 55%,#3D6AC5 100%);
+            background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
             display:grid; grid-template-columns:1fr 400px;
-            align-items:center; padding:calc(var(--nav-h) + 70px) 80px 80px; gap:60px;
+            align-items:center; padding:calc(var(--nav-h)+70px) 80px 80px; gap:60px;
             position:relative; overflow:hidden;
         }
         #hero::before {
             content:''; position:absolute; inset:0; pointer-events:none;
-            background:radial-gradient(ellipse 60% 70% at 75% 50%,rgba(232,149,106,.1) 0%,transparent 60%);
+            background:
+                    radial-gradient(ellipse 55% 65% at 72% 48%, rgba(169,139,227,.18) 0%, transparent 60%),
+                    radial-gradient(ellipse 30% 40% at 10% 80%, rgba(205,183,246,.07) 0%, transparent 50%);
+        }
+        #hero::after {
+            content:'КПІ'; position:absolute; bottom:-50px; left:-20px;
+            font-family:'Unbounded',sans-serif; font-weight:900; font-size:240px;
+            color:rgba(255,255,255,.03); pointer-events:none; line-height:1; user-select:none;
         }
         .hero-content { position:relative; z-index:2; }
         .hero-badge {
             display:inline-flex; align-items:center; gap:8px;
-            background:rgba(232,149,106,.18); border:1px solid rgba(232,149,106,.4);
+            background:rgba(169,139,227,.2); border:1px solid rgba(169,139,227,.45);
             padding:6px 16px; border-radius:100px; font-size:11px; font-weight:500;
-            color:var(--accent-light); letter-spacing:1px; text-transform:uppercase;
+            color:var(--lilac-light); letter-spacing:1px; text-transform:uppercase;
             margin-bottom:28px; animation:fadeDown .7s ease both;
         }
-        .hero-badge::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent); animation:pulse 2s ease infinite; }
+        .hero-badge::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--lilac-mid); animation:pulse 2s ease infinite; }
         @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
         .hero-name {
             font-family:'Unbounded',sans-serif; font-weight:900;
             font-size:clamp(44px,5.5vw,72px); color:var(--white);
             line-height:1.0; letter-spacing:-1.5px; margin-bottom:16px;
             animation:fadeDown .7s .1s ease both;
         }
-        .hero-name .surname { color:var(--accent); display:block; }
+        .hero-name .surname { color:var(--lilac-mid); display:block; }
         .hero-name .firstname { display:block; }
-        .hero-role { font-size:15px; font-weight:300; color:rgba(255,255,255,.55); margin-bottom:32px; animation:fadeDown .7s .2s ease both; }
+        .hero-role { font-size:15px; font-weight:300; color:rgba(255,255,255,.5); margin-bottom:32px; animation:fadeDown .7s .2s ease both; }
         .hero-slogan {
             font-family:'Unbounded',sans-serif; font-weight:600;
-            font-size:clamp(15px,1.8vw,21px); color:rgba(255,255,255,.9);
+            font-size:clamp(15px,1.8vw,20px); color:rgba(255,255,255,.92);
             line-height:1.4; margin-bottom:44px;
-            padding-left:18px; border-left:3px solid var(--accent);
+            padding-left:18px; border-left:3px solid var(--lilac-main);
             animation:fadeDown .7s .3s ease both;
         }
         .hero-actions { display:flex; gap:14px; flex-wrap:wrap; animation:fadeDown .7s .4s ease both; }
         .btn-primary {
-            background:var(--accent); color:var(--white); padding:14px 30px;
-            border-radius:8px; font-family:'Unbounded',sans-serif; font-weight:700;
-            font-size:12px; letter-spacing:.5px; text-decoration:none; transition:all .2s; display:inline-block;
+            background:var(--lilac-main); color:var(--white);
+            padding:14px 30px; border-radius:8px;
+            font-family:'Unbounded',sans-serif; font-weight:700; font-size:12px;
+            letter-spacing:.5px; text-decoration:none; transition:all .2s; display:inline-block;
         }
-        .btn-primary:hover { background:#D4784F; transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,149,106,.35); }
+        .btn-primary:hover { background:#9070CE; transform:translateY(-2px); box-shadow:0 8px 24px rgba(169,139,227,.4); }
         .btn-outline {
-            border:1.5px solid rgba(255,255,255,.35); color:var(--white); padding:13px 30px;
-            border-radius:8px; font-family:'Unbounded',sans-serif; font-weight:600;
-            font-size:12px; letter-spacing:.5px; text-decoration:none; transition:all .2s; display:inline-block;
+            border:1.5px solid rgba(255,255,255,.35); color:var(--white);
+            padding:13px 30px; border-radius:8px;
+            font-family:'Unbounded',sans-serif; font-weight:600; font-size:12px;
+            letter-spacing:.5px; text-decoration:none; transition:all .2s; display:inline-block;
         }
         .btn-outline:hover { border-color:rgba(255,255,255,.7); background:rgba(255,255,255,.07); }
 
         .hero-photo-wrap { position:relative; z-index:2; animation:fadeUp .9s .3s ease both; }
         .hero-photo-card {
-            background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
             border-radius:20px; overflow:hidden; aspect-ratio:3/4; position:relative;
+            border:1px solid rgba(205,183,246,.25);
         }
         .hero-photo-placeholder {
             width:100%; height:100%; display:flex; flex-direction:column;
             align-items:center; justify-content:center; gap:12px;
-            background:linear-gradient(160deg,rgba(61,106,197,.4) 0%,rgba(26,45,107,.7) 100%);
-            color:rgba(255,255,255,.35); font-size:13px; font-weight:300; text-align:center;
+            background:linear-gradient(160deg,rgba(75,59,97,.6) 0%,rgba(42,29,62,.8) 100%);
+            color:rgba(255,255,255,.3); font-size:13px; font-weight:300; text-align:center;
         }
-        .hero-photo-placeholder .ph-icon { font-size:44px; opacity:.3; }
+        .hero-photo-placeholder .ph-icon { font-size:48px; opacity:.25; }
         .hero-photo-label {
             position:absolute; bottom:16px; left:16px; right:16px;
-            background:rgba(26,45,107,.85); backdrop-filter:blur(8px);
-            border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:14px 16px;
+            background:rgba(42,29,62,.88); backdrop-filter:blur(8px);
+            border:1px solid rgba(205,183,246,.15); border-radius:12px; padding:14px 16px;
         }
         .hero-photo-label strong { display:block; font-family:'Unbounded',sans-serif; font-weight:700; font-size:13px; color:var(--white); }
-        .hero-photo-label span { font-size:11px; color:var(--accent); font-weight:300; }
+        .hero-photo-label span { font-size:11px; color:var(--lilac-mid); font-weight:300; }
 
-        /* SECTIONS */
+        /* ═══ SHARED ═══ */
         section { padding:96px 80px; }
-        .section-tag { display:inline-block; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--blue-mid); margin-bottom:10px; }
+        .section-tag { display:inline-block; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--lilac-main); margin-bottom:10px; }
         .section-title { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(26px,3vw,40px); color:var(--text-dark); line-height:1.15; letter-spacing:-.5px; margin-bottom:14px; }
         .section-sub { font-size:16px; font-weight:300; color:var(--text-soft); max-width:560px; line-height:1.75; margin-bottom:56px; }
-        .divider-accent { height:3px; background:linear-gradient(90deg,var(--blue) 0%,var(--blue-light) 60%,var(--accent) 100%); }
+        .divider-accent { height:3px; background:linear-gradient(90deg,var(--lilac-dark) 0%,var(--lilac-main) 60%,var(--lilac-mid) 100%); }
 
-        /* WHY ME */
-        #why { background:var(--accent-pale); border-top:1px solid var(--accent-light); }
-        #why .section-tag { color:var(--accent); }
-        .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        .why-card {
-            background:var(--white); border:1px solid var(--accent-light);
-            border-radius:16px; padding:32px 28px; transition:transform .2s, box-shadow .2s;
+        /* ═══ ABOUT ═══ */
+        #about {
+            background:linear-gradient(135deg,#2A1D3E 0%,#3D2B5A 100%);
         }
-        .why-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(232,149,106,.15); }
-        .why-icon { font-size:32px; margin-bottom:16px; }
-        .why-card h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--text-dark); margin-bottom:10px; }
-        .why-card p { font-size:14px; color:var(--text-soft); font-weight:300; line-height:1.7; }
-
-        /* TEAM */
-        #team { background:var(--off-white); }
-        .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-        .team-card { background:var(--white); border:1px solid var(--border); border-radius:18px; overflow:hidden; transition:transform .25s,box-shadow .25s; }
-        .team-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(43,74,143,.1); }
-        .team-card-photo {
-            aspect-ratio:3/4;
-            background:linear-gradient(150deg,var(--blue-pale) 0%,var(--blue-soft) 100%);
-            display:flex; align-items:center; justify-content:center;
-            position:relative; overflow:hidden;
-        }
-        .team-card-photo .ph-person { font-size:72px; opacity:.12; }
-        .role-badge {
-            position:absolute; top:14px; left:14px;
-            background:var(--blue); color:var(--white);
-            font-size:10px; font-weight:500; letter-spacing:.8px; text-transform:uppercase;
-            padding:4px 10px; border-radius:100px;
-        }
-        .role-badge.accent-badge { background:var(--accent); }
-        .team-card-body { padding:22px 24px 26px; }
-        .team-card-body h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:15px; color:var(--text-dark); margin-bottom:5px; }
-        .team-card-body .role-label { font-size:12px; color:var(--blue-mid); font-weight:500; margin-bottom:10px; }
-        .team-card-body p { font-size:13px; color:var(--text-soft); font-weight:300; line-height:1.6; font-style:italic; }
-
-        /* PROGRAM — accordion */
-        #program { background:var(--white); }
-        .program-list { display:flex; flex-direction:column; gap:12px; }
-        .program-item { border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:box-shadow .2s; }
-        .program-item:hover { box-shadow:0 4px 16px rgba(43,74,143,.08); }
-        .program-trigger {
-            width:100%; display:flex; align-items:center; gap:20px;
-            padding:22px 28px; background:var(--off-white); border:none; cursor:pointer;
-            text-align:left; transition:background .2s;
-        }
-        .program-trigger:hover { background:var(--blue-pale); }
-        .program-trigger.open { background:var(--blue-pale); border-bottom:1px solid var(--border); }
-        .program-num { font-family:'Unbounded',sans-serif; font-weight:900; font-size:11px; letter-spacing:1.5px; color:var(--text-soft); min-width:28px; }
-        .program-trigger h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--text-dark); flex:1; line-height:1.3; }
-        .program-arrow { font-size:18px; color:var(--blue-light); transition:transform .3s; flex-shrink:0; }
-        .program-trigger.open .program-arrow { transform:rotate(180deg); }
-        .program-body { max-height:0; overflow:hidden; transition:max-height .35s ease,padding .35s ease; padding:0 28px; font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.8; }
-        .program-body.open { max-height:300px; padding:22px 28px; }
-        .program-body p { font-style:italic; }
-
-        /* ABOUT */
-        #about { background:linear-gradient(135deg,#1A2D6B 0%,#2B4A8F 100%); color:var(--white); }
         #about .section-title { color:var(--white); }
-        #about .section-sub { color:rgba(255,255,255,.5); }
-        #about .section-tag { color:var(--accent); }
+        #about .section-tag { color:var(--lilac-mid); }
         .about-grid { display:grid; grid-template-columns:320px 1fr; gap:64px; align-items:start; }
         .about-photo-placeholder {
             aspect-ratio:3/4; background:rgba(255,255,255,.07);
-            border:2px dashed rgba(255,255,255,.18); border-radius:18px;
+            border:2px dashed rgba(205,183,246,.25); border-radius:18px;
             display:flex; align-items:center; justify-content:center;
             color:rgba(255,255,255,.3); font-size:13px; font-weight:300;
             flex-direction:column; gap:10px;
         }
-        .about-photo-placeholder .ph-icon { font-size:40px; opacity:.3; }
+        .about-photo-placeholder .ph-icon { font-size:44px; opacity:.25; }
         .about-bio-text { font-size:16px; font-weight:300; color:rgba(255,255,255,.65); line-height:1.8; font-style:italic; margin-bottom:36px; }
         .about-facts { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-        .about-fact { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:18px 20px; }
-        .about-fact .label { font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+        .about-fact { background:rgba(255,255,255,.07); border:1px solid rgba(205,183,246,.15); border-radius:12px; padding:18px 20px; }
+        .about-fact .label { font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--lilac-mid); margin-bottom:6px; }
         .about-fact .value { font-family:'Unbounded',sans-serif; font-size:12px; font-weight:600; color:var(--white); line-height:1.3; }
 
-        /* SIGNATURES */
-        #signatures { background:var(--blue-pale); }
+        /* ═══ WHY ME ═══ */
+        #why { background:var(--lilac-pale); }
+        .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .why-card {
+            background:var(--white); border:1px solid var(--border);
+            border-radius:16px; padding:32px 28px; transition:transform .2s,box-shadow .2s;
+            border-top:3px solid var(--lilac-main);
+        }
+        .why-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(169,139,227,.15); }
+        .why-icon { font-size:30px; margin-bottom:16px; }
+        .why-card h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--text-dark); margin-bottom:10px; }
+        .why-card p { font-size:14px; color:var(--text-soft); font-weight:300; line-height:1.7; }
+
+        /* ═══ PROGRAM accordion ═══ */
+        #program { background:var(--white); }
+        .program-list { display:flex; flex-direction:column; gap:10px; }
+        .program-item { border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:box-shadow .2s; }
+        .program-item:hover { box-shadow:0 4px 16px rgba(169,139,227,.12); }
+        .program-trigger {
+            width:100%; display:flex; align-items:center; gap:20px;
+            padding:20px 28px; background:var(--off-white); border:none; cursor:pointer;
+            text-align:left; transition:background .2s;
+        }
+        .program-trigger:hover { background:var(--lilac-pale); }
+        .program-trigger.open { background:var(--lilac-pale); border-bottom:1px solid var(--border); }
+        .program-num { font-family:'Unbounded',sans-serif; font-weight:900; font-size:11px; letter-spacing:1.5px; color:var(--text-soft); min-width:26px; }
+        .program-trigger h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--text-dark); flex:1; line-height:1.3; }
+        .program-arrow { font-size:16px; color:var(--lilac-main); transition:transform .3s; flex-shrink:0; }
+        .program-trigger.open .program-arrow { transform:rotate(180deg); }
+        .program-body {
+            max-height:0; overflow:hidden; transition:max-height .35s ease,padding .35s ease;
+            padding:0 28px; font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.8;
+        }
+        .program-body.open { max-height:300px; padding:22px 28px; }
+        .program-body p { font-style:italic; }
+
+        /* ═══ TEAM ═══ */
+        #team { background:var(--lilac-pale); }
+        .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+        .team-card { background:var(--white); border:1px solid var(--border); border-radius:18px; overflow:hidden; transition:transform .25s,box-shadow .25s; }
+        .team-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(169,139,227,.14); }
+        .team-card-photo {
+            aspect-ratio:3/4;
+            background:linear-gradient(150deg,var(--lilac-light) 0%,var(--lilac-mid) 100%);
+            display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+        }
+        .team-card-photo .ph-person { font-size:80px; opacity:.2; }
+        .role-badge {
+            position:absolute; top:14px; left:14px;
+            background:var(--lilac-dark); color:var(--white);
+            font-size:10px; font-weight:500; letter-spacing:.8px; text-transform:uppercase;
+            padding:4px 10px; border-radius:100px;
+        }
+        .role-badge.accent-badge { background:var(--lilac-main); }
+        .team-card-body { padding:22px 24px 26px; }
+        .team-card-body h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:15px; color:var(--text-dark); margin-bottom:5px; }
+        .team-card-body .role-label { font-size:12px; color:var(--lilac-main); font-weight:500; margin-bottom:10px; }
+        .team-card-body p { font-size:13px; color:var(--text-soft); font-weight:300; line-height:1.6; font-style:italic; }
+
+        /* ═══ SIGNATURES ═══ */
+        #signatures {
+            background:linear-gradient(135deg,#3D2B5A 0%,#4B3B61 100%);
+        }
         .signatures-inner { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
-        .signatures-text h2 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(24px,2.5vw,36px); color:var(--text-dark); line-height:1.2; margin-bottom:16px; }
-        .signatures-text p { font-size:16px; font-weight:300; color:var(--text-soft); line-height:1.75; margin-bottom:28px; }
+        .signatures-text h2 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(24px,2.5vw,36px); color:var(--white); line-height:1.2; margin-bottom:16px; }
+        .signatures-text .section-tag { color:var(--lilac-mid); }
+        .signatures-text p { font-size:16px; font-weight:300; color:rgba(255,255,255,.55); line-height:1.75; margin-bottom:28px; }
         .counter-block { display:flex; align-items:baseline; gap:10px; margin-bottom:32px; }
-        .counter-num { font-family:'Unbounded',sans-serif; font-weight:900; font-size:52px; color:var(--blue); }
-        .counter-label { font-size:14px; color:var(--text-soft); font-weight:300; }
-        .sig-form { background:var(--white); border:1px solid var(--border); border-radius:18px; padding:40px; }
-        .sig-form h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:16px; color:var(--text-dark); margin-bottom:8px; }
-        .sig-form > p { font-size:14px; color:var(--text-soft); font-weight:300; line-height:1.6; margin-bottom:22px; }
+        .counter-num { font-family:'Unbounded',sans-serif; font-weight:900; font-size:52px; color:var(--lilac-mid); }
+        .counter-label { font-size:14px; color:rgba(255,255,255,.45); font-weight:300; }
+        .sig-form { background:rgba(255,255,255,.07); border:1px solid rgba(205,183,246,.2); border-radius:18px; padding:40px; backdrop-filter:blur(8px); }
+        .sig-form h3 { font-family:'Unbounded',sans-serif; font-weight:700; font-size:16px; color:var(--white); margin-bottom:8px; }
+        .sig-form > p { font-size:14px; color:rgba(255,255,255,.5); font-weight:300; line-height:1.6; margin-bottom:22px; }
         .form-field {
-            width:100%; border:1.5px solid var(--border); border-radius:8px;
+            width:100%; border:1.5px solid rgba(205,183,246,.25); border-radius:8px;
             padding:13px 16px; font-family:'Geologica',sans-serif; font-size:14px;
-            color:var(--text-dark); background:var(--off-white); margin-bottom:12px;
+            color:var(--white); background:rgba(255,255,255,.08); margin-bottom:12px;
             outline:none; transition:border-color .2s;
         }
-        .form-field:focus { border-color:var(--blue-mid); background:var(--white); }
-        .form-field::placeholder { color:var(--text-soft); }
+        .form-field:focus { border-color:var(--lilac-mid); background:rgba(255,255,255,.12); }
+        .form-field::placeholder { color:rgba(255,255,255,.35); }
         .form-submit {
-            width:100%; background:var(--blue); color:var(--white); padding:15px;
+            width:100%; background:var(--lilac-main); color:var(--white); padding:15px;
             border-radius:8px; border:none; font-family:'Unbounded',sans-serif;
             font-weight:700; font-size:13px; letter-spacing:.5px; cursor:pointer; transition:all .2s;
         }
-        .form-submit:hover { background:var(--blue-mid); transform:translateY(-1px); box-shadow:0 6px 20px rgba(43,74,143,.25); }
-        .form-note { font-size:11px; color:var(--text-soft); margin-top:10px; text-align:center; }
+        .form-submit:hover { background:#9070CE; transform:translateY(-1px); box-shadow:0 6px 20px rgba(169,139,227,.35); }
+        .form-note { font-size:11px; color:rgba(255,255,255,.35); margin-top:10px; text-align:center; }
 
-        /* CONTACT */
+        /* ═══ CONTACT ═══ */
         #contact { background:var(--off-white); }
         .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
         .contact-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:36px; }
@@ -237,30 +254,37 @@
             color:var(--text-mid); font-size:14px; padding:11px 14px;
             border-radius:8px; border:1px solid var(--border); transition:all .2s;
         }
-        .contact-link:hover { background:var(--blue-pale); border-color:var(--blue-light); color:var(--blue); }
-        .link-icon { width:34px; height:34px; border-radius:8px; background:var(--blue-pale); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+        .contact-link:hover { background:var(--lilac-pale); border-color:var(--lilac-main); color:var(--lilac-dark); }
+        .link-icon { width:34px; height:34px; border-radius:8px; background:var(--lilac-pale); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+        .contact-form .form-field { border-color:var(--border); color:var(--text-dark); background:var(--off-white); }
+        .contact-form .form-field:focus { border-color:var(--lilac-main); background:var(--white); }
+        .contact-form .form-field::placeholder { color:var(--text-soft); }
+        .contact-form .form-submit { background:var(--lilac-dark); }
+        .contact-form .form-submit:hover { background:var(--lilac-main); }
 
-        /* FOOTER */
-        footer { background:var(--text-dark); padding:56px 80px 40px; color:rgba(255,255,255,.45); }
+        /* ═══ FOOTER ═══ */
+        footer { background:#1E1530; padding:56px 80px 40px; color:rgba(255,255,255,.4); }
         .footer-inner { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
         .footer-brand { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--white); margin-bottom:10px; }
-        .footer-brand span { color:var(--accent); }
+        .footer-brand span { color:var(--lilac-mid); }
         .footer-desc { font-size:13px; font-weight:300; line-height:1.7; }
-        .footer-col h4 { font-family:'Unbounded',sans-serif; font-weight:600; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:14px; }
+        .footer-col h4 { font-family:'Unbounded',sans-serif; font-weight:600; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:14px; }
         .footer-col ul { list-style:none; }
         .footer-col li { margin-bottom:9px; }
-        .footer-col a { color:rgba(255,255,255,.5); text-decoration:none; font-size:13px; font-weight:300; transition:color .2s; }
-        .footer-col a:hover { color:var(--accent); }
+        .footer-col a { color:rgba(255,255,255,.45); text-decoration:none; font-size:13px; font-weight:300; transition:color .2s; }
+        .footer-col a:hover { color:var(--lilac-mid); }
         .footer-bottom { border-top:1px solid rgba(255,255,255,.07); padding-top:24px; display:flex; justify-content:space-between; font-size:12px; font-weight:300; }
 
+        /* ═══ ANIMATIONS ═══ */
         @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
         @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)}  to{opacity:1;transform:translateY(0)} }
 
+        /* ═══ MOBILE ═══ */
         @media(max-width:960px){
             section{padding:64px 24px}
             nav{padding:0 20px}
             .nav-links{display:none}
-            #hero{grid-template-columns:1fr;padding:calc(var(--nav-h)+40px) 24px 60px}
+            #hero{grid-template-columns:1fr;padding:calc(var(--nav-h)+44px) 24px 60px}
             .hero-photo-wrap{display:none}
             .why-grid,.team-grid,.about-grid,.contact-grid,.signatures-inner,.footer-inner{grid-template-columns:1fr}
             footer{padding:48px 24px}
@@ -269,13 +293,14 @@
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
     <div class="nav-logo"><span>Грабовський</span> Андрій</div>
     <ul class="nav-links">
-        <li><a href="#why">Чому я</a></li>
-        <li><a href="#team">Команда</a></li>
-        <li><a href="#program">Програма</a></li>
         <li><a href="#about">Про мене</a></li>
+        <li><a href="#why">Чому я</a></li>
+        <li><a href="#program">Програма</a></li>
+        <li><a href="#team">Команда</a></li>
         <li><a href="#signatures">Підписи</a></li>
         <li><a href="#contact" class="nav-cta">Контакт</a></li>
     </ul>
@@ -290,7 +315,7 @@
             <span class="firstname">Андрій</span>
         </h1>
         <p class="hero-role">Студентське самоврядування КПІ ім. Ігоря Сікорського</p>
-        <p class="hero-slogan">[Слоган кандидата буде тут]</p>
+        <p class="hero-slogan">Час діяти професійно.<br>Час будувати КПІ разом!</p>
         <div class="hero-actions">
             <a href="#program" class="btn-primary">Переглянути програму</a>
             <a href="#signatures" class="btn-outline">Підписати петицію</a>
@@ -312,7 +337,30 @@
 
 <div class="divider-accent"></div>
 
-<!-- ЧОМУ Я -->
+<!-- 1. ПРО МЕНЕ -->
+<section id="about">
+    <span class="section-tag">Про мене</span>
+    <h2 class="section-title">Грабовський Андрій</h2>
+    <div class="about-grid">
+        <div class="about-photo-placeholder">
+            <span class="ph-icon">📸</span>
+            <span>Фото буде додано</span>
+        </div>
+        <div>
+            <p class="about-bio-text">Біографія кандидата буде тут — де навчається, чим займається, що вже зробив для університету і чому це важливо для студентів КПІ.</p>
+            <div class="about-facts">
+                <div class="about-fact"><div class="label">Факультет</div><div class="value">[Факультет]</div></div>
+                <div class="about-fact"><div class="label">Курс</div><div class="value">[Курс]</div></div>
+                <div class="about-fact"><div class="label">Спеціальність</div><div class="value">[Спеціальність]</div></div>
+                <div class="about-fact"><div class="label">Досвід у СС</div><div class="value">[Досвід]</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider-accent"></div>
+
+<!-- 2. ЧОМУ Я -->
 <section id="why">
     <span class="section-tag">Мотивація</span>
     <h2 class="section-title">Чому саме я?</h2>
@@ -321,7 +369,7 @@
         <div class="why-card">
             <div class="why-icon">🎯</div>
             <h3>[Причина 1]</h3>
-            <p>Тут буде текст — конкретний досвід або ситуація, яка надихнула балотуватись.</p>
+            <p>Конкретний досвід або ситуація, яка надихнула балотуватись.</p>
         </div>
         <div class="why-card">
             <div class="why-icon">🤝</div>
@@ -331,14 +379,61 @@
         <div class="why-card">
             <div class="why-icon">🚀</div>
             <h3>[Причина 3]</h3>
-            <p>Бачення майбутнього СС і що хочеш змінити — коротко і по суті.</p>
+            <p>Бачення майбутнього СС і що хочеш змінити.</p>
         </div>
     </div>
 </section>
 
 <div class="divider-accent"></div>
 
-<!-- TEAM -->
+<!-- 3. ПРОГРАМА -->
+<section id="program">
+    <span class="section-tag">Передвиборча програма</span>
+    <h2 class="section-title">Пріоритети розвитку</h2>
+    <p class="section-sub">Натисни на пункт — і побачиш деталі: що саме ми змінимо і як.</p>
+    <div class="program-list">
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">01</span><h3>Освіта</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Детальний опис змін в освітньому процесі — конкретні кроки та очікувані результати. Буде заповнено.</p></div>
+        </div>
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">02</span><h3>Студмістечко</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Що змінимо в умовах проживання студентів. Буде заповнено.</p></div>
+        </div>
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">03</span><h3>Комунікація</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Як покращимо зв'язок між студентами, СС та адміністрацією. Буде заповнено.</p></div>
+        </div>
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">04</span><h3>Можливості</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Стипендії, гранти, стажування, нові клуби — що пропонуємо. Буде заповнено.</p></div>
+        </div>
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">05</span><h3>[Пріоритет 5]</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Опис буде тут.</p></div>
+        </div>
+        <div class="program-item">
+            <button class="program-trigger" onclick="toggleProgram(this)">
+                <span class="program-num">06</span><h3>[Пріоритет 6]</h3><span class="program-arrow">▾</span>
+            </button>
+            <div class="program-body"><p>Опис буде тут.</p></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider-accent"></div>
+
+<!-- 4. КОМАНДА -->
 <section id="team">
     <span class="section-tag">Команда</span>
     <h2 class="section-title">Президент і команда</h2>
@@ -382,77 +477,7 @@
 
 <div class="divider-accent"></div>
 
-<!-- PROGRAM accordion -->
-<section id="program">
-    <span class="section-tag">Передвиборча програма</span>
-    <h2 class="section-title">Пріоритети розвитку</h2>
-    <p class="section-sub">Натисни на пункт — і побачиш деталі: що саме ми змінимо і як.</p>
-    <div class="program-list">
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">01</span><h3>Освіта</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Детальний опис змін в освітньому процесі — конкретні кроки та очікувані результати. Буде заповнено.</p></div>
-        </div>
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">02</span><h3>Гуртожитки</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Що змінимо в умовах проживання студентів. Буде заповнено.</p></div>
-        </div>
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">03</span><h3>Комунікація</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Як покращимо зв'язок між студентами, СС та адміністрацією. Буде заповнено.</p></div>
-        </div>
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">04</span><h3>Можливості</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Стипендії, гранти, стажування, нові клуби — що пропонуємо. Буде заповнено.</p></div>
-        </div>
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">05</span><h3>[Пріоритет 5]</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Опис буде тут.</p></div>
-        </div>
-        <div class="program-item">
-            <button class="program-trigger" onclick="toggleProgram(this)">
-                <span class="program-num">06</span><h3>[Пріоритет 6]</h3><span class="program-arrow">▾</span>
-            </button>
-            <div class="program-body"><p>Опис буде тут.</p></div>
-        </div>
-    </div>
-</section>
-
-<div class="divider-accent"></div>
-
-<!-- ABOUT -->
-<section id="about">
-    <span class="section-tag">Про мене</span>
-    <h2 class="section-title">Грабовський Андрій</h2>
-    <div class="about-grid">
-        <div class="about-photo-placeholder">
-            <span class="ph-icon">📸</span>
-            <span>Фото буде додано</span>
-        </div>
-        <div>
-            <p class="about-bio-text">Біографія кандидата буде тут — де навчається, чим займається, що вже зробив для університету і чому це важливо для студентів КПІ.</p>
-            <div class="about-facts">
-                <div class="about-fact"><div class="label">Факультет</div><div class="value">[Факультет]</div></div>
-                <div class="about-fact"><div class="label">Курс</div><div class="value">[Курс]</div></div>
-                <div class="about-fact"><div class="label">Спеціальність</div><div class="value">[Спеціальність]</div></div>
-                <div class="about-fact"><div class="label">Досвід у СС</div><div class="value">[Досвід]</div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="divider-accent"></div>
-
-<!-- SIGNATURES -->
+<!-- 5. ПІДПИСИ -->
 <section id="signatures">
     <div class="signatures-inner">
         <div class="signatures-text">
@@ -465,7 +490,15 @@
             </div>
             <a href="#program" class="btn-primary">Переглянути програму</a>
         </div>
-
+        <div class="sig-form">
+            <h3>Підписати</h3>
+            <p>Залиш ім'я та студентський email КПІ. Дані не передаються третім особам.</p>
+            <input class="form-field" type="text"  id="sigName"    placeholder="Ім'я та Прізвище">
+            <input class="form-field" type="email" id="sigEmail"   placeholder="student@kpi.ua">
+            <input class="form-field" type="text"  id="sigFaculty" placeholder="Факультет (необов'язково)">
+            <button class="form-submit" onclick="submitSignature()">✍️ Підписати петицію</button>
+            <p class="form-note">Натискаючи кнопку, ти підтверджуєш підтримку кандидатури Грабовського Андрія</p>
+        </div>
     </div>
 </section>
 
@@ -486,7 +519,7 @@
                 <a href="#" class="contact-link"><span class="link-icon">✉️</span>Email</a>
             </div>
         </div>
-        <div class="contact-card">
+        <div class="contact-card contact-form">
             <h3>Написати напряму</h3>
             <p style="font-size:14px;color:var(--text-soft);font-weight:300;line-height:1.6;margin-bottom:18px;">Форму можна підключити через Google Forms або власний backend. Поки заглушка.</p>
             <input class="form-field" type="text"  placeholder="Твоє ім'я">
@@ -497,6 +530,7 @@
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
     <div class="footer-inner">
         <div>
@@ -506,10 +540,10 @@
         <div class="footer-col">
             <h4>Навігація</h4>
             <ul>
-                <li><a href="#why">Чому я</a></li>
-                <li><a href="#team">Команда</a></li>
-                <li><a href="#program">Програма</a></li>
                 <li><a href="#about">Про мене</a></li>
+                <li><a href="#why">Чому я</a></li>
+                <li><a href="#program">Програма</a></li>
+                <li><a href="#team">Команда</a></li>
                 <li><a href="#signatures">Підписи</a></li>
             </ul>
         </div>
