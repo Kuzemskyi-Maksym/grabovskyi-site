@@ -39,7 +39,7 @@
             position:fixed; top:0; left:0; right:0; height:var(--nav-h);
             background:rgba(75,59,97,0.96); backdrop-filter:blur(14px);
             z-index:1000; display:flex; align-items:center;
-            justify-content:space-between; padding:0 40px;
+            justify-content:space-between; padding:0 80px;
             border-bottom:1.5px solid rgba(169,139,227,0.3);
         }
         .nav-logo { font-family:'Unbounded',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
@@ -53,7 +53,7 @@
         #hero {
             min-height:100vh;
             background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
-            padding:calc(var(--nav-h)+130px) 40px 80px;
+            padding:calc(var(--nav-h)+130px) 80px 80px;
             position:relative; overflow:hidden;
         }
         #hero::before {
@@ -136,7 +136,7 @@
         .hero-photo-label span { font-size:11px; color:var(--lilac-mid); font-weight:300; }
 
         /* ═══ SHARED ═══ */
-        section { padding:96px 40px; }
+        section { padding:96px 80px; }
         .container { max-width:1200px; margin:0 auto; }
         .section-tag { display:inline-block; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--lilac-main); margin-bottom:10px; }
         .section-title { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(26px,3vw,40px); color:var(--text-dark); line-height:1.15; letter-spacing:-.5px; margin-bottom:14px; }
@@ -274,7 +274,7 @@
         .contact-form .form-submit:hover { background:var(--lilac-main); }
 
         /* ═══ FOOTER ═══ */
-        footer { background:#1E1530; padding:56px 40px 40px; color:rgba(255,255,255,.4); }
+        footer { background:#1E1530; padding:56px 80px 40px; color:rgba(255,255,255,.4); }
         .footer-inner { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
         .footer-brand { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--white); margin-bottom:10px; }
         .footer-brand span { color:var(--lilac-mid); }
@@ -292,13 +292,13 @@
 
         /* ═══ MOBILE ═══ */
         @media(max-width:960px){
-            section{padding:64px 28px}
-            nav{padding:0 20px}
+            section{padding:64px 24px}
+            nav{padding:0 24px}
             .nav-links{display:none}
-            #hero{grid-template-columns:1fr;padding:calc(var(--nav-h)+44px) 28px 60px}
+            #hero{grid-template-columns:1fr;padding:calc(var(--nav-h)+44px) 24px 60px}
             .hero-photo-wrap{display:none}
             .why-grid,.team-grid,.about-grid,.contact-grid,.signatures-inner,.footer-inner{grid-template-columns:1fr}
-            footer{padding:48px 28px}
+            footer{padding:48px 24px}
         }
     </style>
 </head>
