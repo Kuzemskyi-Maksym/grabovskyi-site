@@ -29,11 +29,17 @@
         body { font-family:'Geologica',sans-serif; color:var(--text-dark); background:var(--white); overflow-x:hidden; }
 
         /* ═══ NAV ═══ */
+
+        .nav-container {
+            max-width:1200px; margin:0 auto; width:100%;
+            display:flex; align-items:center; justify-content:space-between;
+        }
+
         nav {
             position:fixed; top:0; left:0; right:0; height:var(--nav-h);
             background:rgba(75,59,97,0.96); backdrop-filter:blur(14px);
             z-index:1000; display:flex; align-items:center;
-            justify-content:space-between; padding:0 120px;
+            justify-content:space-between; padding:0 40px;
             border-bottom:1.5px solid rgba(169,139,227,0.3);
         }
         .nav-logo { font-family:'Unbounded',sans-serif; font-weight:700; font-size:15px; color:var(--white); }
@@ -47,8 +53,7 @@
         #hero {
             min-height:100vh;
             background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
-            display:grid; grid-template-columns:1fr 400px;
-            align-items:center; padding:calc(var(--nav-h)+70px) 120px 80px; gap:60px;
+            padding:calc(var(--nav-h)+70px) 40px 80px;
             position:relative; overflow:hidden;
         }
         #hero::before {
@@ -62,7 +67,12 @@
             font-family:'Unbounded',sans-serif; font-weight:900; font-size:240px;
             color:rgba(255,255,255,.03); pointer-events:none; line-height:1; user-select:none;
         }
-        .hero-content { position:relative; z-index:2; }
+        .hero-container {
+            max-width:1200px; margin:0 auto; width:100%;
+            display:grid; grid-template-columns:1fr 400px;
+            align-items:center; gap:60px; position:relative; z-index:2;
+        }
+        .hero-content { }
         .hero-badge {
             display:inline-flex; align-items:center; gap:8px;
             background:rgba(169,139,227,.2); border:1px solid rgba(169,139,227,.45);
@@ -126,7 +136,8 @@
         .hero-photo-label span { font-size:11px; color:var(--lilac-mid); font-weight:300; }
 
         /* ═══ SHARED ═══ */
-        section { padding:96px 120px; }
+        section { padding:96px 40px; }
+        .container { max-width:1200px; margin:0 auto; }
         .section-tag { display:inline-block; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--lilac-main); margin-bottom:10px; }
         .section-title { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(26px,3vw,40px); color:var(--text-dark); line-height:1.15; letter-spacing:-.5px; margin-bottom:14px; }
         .section-sub { font-size:16px; font-weight:300; color:var(--text-soft); max-width:560px; line-height:1.75; margin-bottom:56px; }
@@ -263,7 +274,7 @@
         .contact-form .form-submit:hover { background:var(--lilac-main); }
 
         /* ═══ FOOTER ═══ */
-        footer { background:#1E1530; padding:56px 120px 40px; color:rgba(255,255,255,.4); }
+        footer { background:#1E1530; padding:56px 40px 40px; color:rgba(255,255,255,.4); }
         .footer-inner { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
         .footer-brand { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--white); margin-bottom:10px; }
         .footer-brand span { color:var(--lilac-mid); }
@@ -294,7 +305,7 @@
 <body>
 
 <!-- NAV -->
-<nav>
+<nav><div class="nav-container">
     <div class="nav-logo"><span>Грабовський</span> Андрій</div>
     <ul class="nav-links">
         <li><a href="#about">Про мене</a></li>
@@ -304,10 +315,10 @@
         <li><a href="#signatures">Підписи</a></li>
         <li><a href="#contact" class="nav-cta">Контакт</a></li>
     </ul>
-</nav>
+</div></nav>
 
 <!-- HERO -->
-<section id="hero">
+<section id="hero"><div class="hero-container">
     <div class="hero-content">
         <div class="hero-badge">Кандидат у Президенти СС КПІ</div>
         <h1 class="hero-name">
@@ -333,12 +344,12 @@
             </div>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- 1. ПРО МЕНЕ -->
-<section id="about">
+<section id="about"><div class="container">
     <span class="section-tag">Про мене</span>
     <h2 class="section-title">Грабовський Андрій</h2>
     <div class="about-grid">
@@ -356,12 +367,12 @@
             </div>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- 2. ЧОМУ Я -->
-<section id="why">
+<section id="why"><div class="container">
     <span class="section-tag">Мотивація</span>
     <h2 class="section-title">Чому саме я?</h2>
     <p class="section-sub">Коротко про те, що мене рухає і чому я беру відповідальність за студентів КПІ.</p>
@@ -382,12 +393,12 @@
             <p>Бачення майбутнього СС і що хочеш змінити.</p>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- 3. ПРОГРАМА -->
-<section id="program">
+<section id="program"><div class="container">
     <span class="section-tag">Передвиборча програма</span>
     <h2 class="section-title">Пріоритети розвитку</h2>
     <p class="section-sub">Натисни на пункт — і побачиш деталі: що саме ми змінимо і як.</p>
@@ -429,12 +440,12 @@
             <div class="program-body"><p>Опис буде тут.</p></div>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- 4. КОМАНДА -->
-<section id="team">
+<section id="team"><div class="container">
     <span class="section-tag">Команда</span>
     <h2 class="section-title">Президент і команда</h2>
     <p class="section-sub">Разом представляємо інтереси всіх студентів КПІ.</p>
@@ -473,12 +484,12 @@
             </div>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- 5. ПІДПИСИ -->
-<section id="signatures">
+<section id="signatures"><div class="container">
     <div class="signatures-inner">
         <div class="signatures-text">
             <span class="section-tag">Підтримай кандидата</span>
@@ -500,12 +511,12 @@
             <p class="form-note">Натискаючи кнопку, ти підтверджуєш підтримку кандидатури Грабовського Андрія</p>
         </div>
     </div>
-</section>
+</div></section>
 
 <div class="divider-accent"></div>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact"><div class="container">
     <span class="section-tag">Зв'язок</span>
     <h2 class="section-title">Зв'яжись з нами</h2>
     <p class="section-sub">Питання, пропозиції або просто привіт — ми відповімо.</p>
@@ -528,10 +539,10 @@
             <button class="form-submit">Надіслати [заглушка]</button>
         </div>
     </div>
-</section>
+</div></section>
 
 <!-- FOOTER -->
-<footer>
+<footer><div class="container">
     <div class="footer-inner">
         <div>
             <div class="footer-brand"><span>Грабовський</span> Андрій</div>
@@ -560,7 +571,7 @@
         <span>© 2025 Грабовський Андрій. КПІ ім. Ігоря Сікорського</span>
         <span>Студентське самоврядування</span>
     </div>
-</footer>
+</div></footer>
 
 <script>
     function toggleProgram(btn) {
