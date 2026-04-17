@@ -53,7 +53,8 @@
         #hero {
             min-height:100vh;
             background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
-            padding:calc(var(--nav-h)+130px) 80px 80px;
+            display:flex; align-items:center; justify-content:center;
+            padding:calc(var(--nav-h)+100px) 80px 60px;
             position:relative; overflow:hidden;
         }
         #hero::before {
@@ -68,7 +69,7 @@
             color:rgba(255,255,255,.03); pointer-events:none; line-height:1; user-select:none;
         }
         .hero-container {
-            max-width:1200px; margin:0 auto; width:100%;
+            max-width:1200px; width:100%;
             display:grid; grid-template-columns:1fr 400px;
             align-items:center; gap:60px; position:relative; z-index:2;
         }
@@ -136,8 +137,8 @@
         .hero-photo-label span { font-size:11px; color:var(--lilac-mid); font-weight:300; }
 
         /* ═══ SHARED ═══ */
-        section { padding:96px 80px; }
-        .container { max-width:1200px; margin:0 auto; }
+        section { padding:96px 80px; display:flex; flex-direction:column; align-items:center; }
+        .container { max-width:1200px; width:100%; }
         .section-tag { display:inline-block; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--lilac-main); margin-bottom:10px; }
         .section-title { font-family:'Unbounded',sans-serif; font-weight:700; font-size:clamp(26px,3vw,40px); color:var(--text-dark); line-height:1.15; letter-spacing:-.5px; margin-bottom:14px; }
         .section-sub { font-size:16px; font-weight:300; color:var(--text-soft); max-width:560px; line-height:1.75; margin-bottom:56px; }
@@ -274,7 +275,7 @@
         .contact-form .form-submit:hover { background:var(--lilac-main); }
 
         /* ═══ FOOTER ═══ */
-        footer { background:#1E1530; padding:56px 80px 40px; color:rgba(255,255,255,.4); }
+        footer { background:#1E1530; padding:56px 80px 40px; color:rgba(255,255,255,.4); display:flex; justify-content:center; }
         .footer-inner { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
         .footer-brand { font-family:'Unbounded',sans-serif; font-weight:700; font-size:14px; color:var(--white); margin-bottom:10px; }
         .footer-brand span { color:var(--lilac-mid); }
