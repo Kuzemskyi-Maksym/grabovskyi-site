@@ -26,7 +26,7 @@
 
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
-        body { font-family:'Geologica',sans-serif; color:var(--text-dark); background:var(--white); overflow-x:hidden; }
+        body { font-family:'Geologica',sans-serif; color:var(--text-dark); background:var(--white); overflow-x:hidden; overflow-y:auto; }
 
         /* ═══ NAV ═══ */
 
@@ -55,7 +55,7 @@
             background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
             display:flex; align-items:center; justify-content:center;
             padding:calc(var(--nav-h)+100px) 80px 60px;
-            position:relative; overflow:hidden;
+            position:relative; overflow:clip;
         }
         #hero::before {
             content:''; position:absolute; inset:0; pointer-events:none;
@@ -355,7 +355,7 @@
             <img src="/images/hrabovskyy.jpg" alt="Грабовський Андрій" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
         </div>
         <div>
-            <p class="about-bio-text" style="text-align:center;line-height:2.1;font-style:normal;">Понад 1,5 року активної роботи в студентському самоврядуванні — Студентська рада КПІ та ВКСУ. Знає систему зсередини, розуміє її проблеми і знає, як їх вирішити.</p>
+            <p class="about-bio-text" style="text-align:center;line-height:2.1;font-style:normal;">Активний учасник студентського самоврядування — Студентська рада КПІ та ВКСУ. Номінований відзнакою від Вченої ради Університету «За сумлінне ставлення до обов'язків та активну громадську, організаційну, культурно-просвітницьку діяльність та допомогу в облаштуванні укриттів».</p>
             <div class="about-facts">
                 <div class="about-fact"><div class="label">Факультет</div><div class="value">ФІОТ</div></div>
                 <div class="about-fact"><div class="label">Курс</div><div class="value">2 курс</div></div>
@@ -377,17 +377,17 @@
         <div class="why-card">
             <div class="why-icon">🏛️</div>
             <h3>Знаю систему зсередини</h3>
-            <p>1,5 року в студентському самоврядуванні — Студрада КПІ та ВКСУ. Бачив, як приймаються рішення, де є «дірки» і що реально можна змінити.</p>
+            <p>Працював у Студраді КПІ та ВКСУ. Бачив, як ухвалюються рішення, розумію, де є слабкі місця — і що з цим робити.</p>
         </div>
         <div class="why-card">
             <div class="why-icon">💡</div>
             <h3>Конкретні рішення, не обіцянки</h3>
-            <p>Програма побудована на реальних інструментах: чат-боти, відкриті бюджети, реформа Положення. Не «покращимо», а «ось як і коли».</p>
+            <p>Програма побудована на реальних інструментах: чат-боти, відкриті бюджети, реформа Положення. Не «покращимо», а конкретний план з кроками.</p>
         </div>
         <div class="why-card">
             <div class="why-icon">🤝</div>
             <h3>Команда, а не один</h3>
-            <p>За мною — люди з досвідом у різних напрямах. Ми не починаємо з нуля: ми вже знаємо одне одного і вміємо працювати разом.</p>
+            <p>За мною — люди з досвідом у різних напрямах. Ми вже знаємо одне одного і вміємо працювати разом.</p>
         </div>
     </div>
 </div></section>
@@ -517,8 +517,8 @@
         <div class="contact-card">
             <h3>Соцмережі та контакти</h3>
             <div class="contact-links">
-                <a href="#" class="contact-link"><span class="link-icon">✈️</span>Telegram-канал</a>
-                <a href="#" class="contact-link"><span class="link-icon">📸</span>Instagram</a>
+                <a href="https://t.me/hrabovskyy_pyshe" target="_blank" class="contact-link"><span class="link-icon">✈️</span>Telegram-канал</a>
+                <a href="https://www.instagram.com/hrabovskyii/" target="_blank" class="contact-link"><span class="link-icon">📸</span>Instagram</a>
 
             </div>
         </div>
@@ -560,7 +560,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <span>© 2025 Грабовський Андрій. КПІ ім. Ігоря Сікорського</span>
+        <span>© 2026 Грабовський Андрій. КПІ ім. Ігоря Сікорського</span>
         <span>Студентське самоврядування</span>
     </div>
 </div></footer>
