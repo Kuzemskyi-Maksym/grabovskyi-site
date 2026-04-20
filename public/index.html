@@ -25,7 +25,7 @@
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; overflow-x:hidden; }
+        html { scroll-behavior:smooth; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
         body { font-family:'Geologica',sans-serif; color:var(--text-dark); background:var(--white); }
 
         /* ═══ NAV ═══ */
@@ -55,7 +55,7 @@
             background:linear-gradient(135deg, #2A1D3E 0%, #3D2B5A 50%, #4B3B61 100%);
             display:flex; align-items:center; justify-content:center;
             padding:calc(var(--nav-h)+100px) 80px 60px;
-            position:relative; overflow:clip;
+            position:relative;
         }
         #hero::before {
             content:''; position:absolute; inset:0; pointer-events:none;
@@ -198,7 +198,7 @@
             max-height:0; overflow:hidden; transition:max-height .35s ease,padding .35s ease;
             padding:0 28px; font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.8;
         }
-        .program-body.open { max-height:300px; padding:22px 28px; }
+        .program-body.open { max-height:1000px; padding:22px 28px; }
         .program-body p { font-style:italic; }
 
         /* ═══ TEAM ═══ */
